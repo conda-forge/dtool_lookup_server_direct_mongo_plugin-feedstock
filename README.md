@@ -7,7 +7,7 @@ Package license: MIT
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/dtool_lookup_server_direct_mongo_plugin-feedstock/blob/master/LICENSE.txt)
 
-Summary: This plugin allows to submit mongo queries and aggregation                    pipelines directly to the lookup server's underlying MongoDB.
+Summary: This plugin allows to submit mongo queries and aggregation pipelines directly to the lookup servers underlying MongoDB.
 
 Current build status
 ====================
