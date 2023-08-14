@@ -1,5 +1,5 @@
 {% set name = "dtool_lookup_server_direct_mongo_plugin" %}
-{% set version = "0.1.4" %}
+{% set version = "0.2.0" %}
 
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/dtool-lookup-server-direct-mongo-plugin/dtool-lookup-server-direct-mongo-plugin-{{ version }}.tar.gz
-  sha256: d1490258e282298576f5372dc9d155403dafc182190c9d9239e10b0769db9dfb
+  sha256: 827e6f358d4f5322f298ecee488c45ab12c745be00fd2bc6cd072aca20b25c75
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
