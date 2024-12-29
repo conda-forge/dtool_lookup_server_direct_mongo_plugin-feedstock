@@ -7,23 +7,24 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/dtool-lookup-server-direct-mongo-plugin/dtool-lookup-server-direct-mongo-plugin-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/dtool-lookup-server-direct-mongo-plugin/dtool-lookup-server-direct-mongo-plugin-{{ version }}.tar.gz
   sha256: 827e6f358d4f5322f298ecee488c45ab12c745be00fd2bc6cd072aca20b25c75
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
     - setuptools_scm
+    - setuptools
   run:
     - dtool_lookup_server >=0.17.2
     - dtoolcore >=3.17.0
-    - python >=3.6
+    - python >={{ python_min }}
 
 test:
   imports:
@@ -32,6 +33,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/IMTEK-Simulation/dtool-lookup-server-direct-mongo-plugin
