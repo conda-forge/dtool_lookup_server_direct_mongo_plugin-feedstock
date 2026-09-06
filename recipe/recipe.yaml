@@ -1,0 +1,46 @@
+schema_version: 1
+
+context:
+  name: dtool_lookup_server_direct_mongo_plugin
+  version: "0.2.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/dtool-lookup-server-direct-mongo-plugin/dtool-lookup-server-direct-mongo-plugin-${{ version }}.tar.gz
+  sha256: 827e6f358d4f5322f298ecee488c45ab12c745be00fd2bc6cd072aca20b25c75
+
+build:
+  number: 2
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - pip
+    - python ${{ python_min }}.*
+    - setuptools_scm
+    - setuptools
+  run:
+    - dtool_lookup_server >=0.17.2
+    - dtoolcore >=3.17.0
+    - python >=${{ python_min }}
+
+tests:
+  - python:
+      imports:
+        - dtool_lookup_server_direct_mongo_plugin
+      pip_check: true
+      python_version: ${{ python_min }}
+
+about:
+  summary: This plugin allows to submit mongo queries and aggregation pipelines directly to the lookup servers underlying MongoDB.
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/IMTEK-Simulation/dtool-lookup-server-direct-mongo-plugin
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
